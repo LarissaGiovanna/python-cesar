@@ -51,5 +51,5 @@ else:
     ganhadorPercent = percent11
 
 #mensagem final
-print(f"Jogador 7: {votosJogador7} votos ({percent7}%)\nJogador 8: {votosJogador8} votos ({percent8}%)\nJogador 9: {votosJogador9} votos ({percent9}%)\nJogador 10: {votosJogador10} votos ({percent10}%)\nJogador 11: {votosJogador11} votos ({percent11}%)")
-print(f"O ganhador final foi o {ganhador} com {ganhadorVotos} votos ({ganhadorPercent}%).")
+print(f"Jogador 7: {votosJogador7} votos ({percent7:.2f}%)\nJogador 8: {votosJogador8} votos ({percent8:.2f}%)\nJogador 9: {votosJogador9} votos ({percent9:.2f}%)\nJogador 10: {votosJogador10} votos ({percent10:.2f}%)\nJogador 11: {votosJogador11} votos ({percent11:.2f}%)")
+print(f"O ganhador final foi o {ganhador} com {ganhadorVotos} votos ({ganhadorPercent:.2f}%).")
