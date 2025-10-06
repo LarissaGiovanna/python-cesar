@@ -1,4 +1,4 @@
-defeitos =[]
+defeitos = []
 quantMouses = int(input("Digite a quantidade de mouses: "))
 for i in range(quantMouses):
     print("\n1- Necessita da esfera\n2 - Necessita de limpeza\n3 - Necessita troca do cabo ou conector\n4 - Quebrado ou inutilizado")
