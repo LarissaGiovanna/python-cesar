@@ -59,10 +59,17 @@ def atribuicao_posicao_inimigas(inimigas_posicao):
 # ----------------------- Varredura --------------------------
 
 def mover_bispo__inferior_esquerda(posicao_bispo):
-    nova_linha = posicao_bispo[0] - 1
-    nova_coluna = posicao_bispo[1] - 1
-    nova_posicao = [nova_linha, nova_coluna]
-    return nova_posicao
+    if posicao_bispo[1] != 1 and posicao_bispo[0] != 1:
+        for i in range(7):
+            # anda o bispo para inferior esquerda
+            nova_linha = posicao_bispo[0] - 1 
+            nova_coluna = posicao_bispo[1] - 1
+            if nova_linha > 0 and nova_coluna > 0: #verificacao pra ele nao andar fora do tabuleiro
+                posicoes_andadas = [[nova_linha, nova_coluna]]
+                return posicoes_andadas
+            else:
+                break
+    
 
 def mover_bispo__inferior_direita(posicao_bispo):
     nova_linha = posicao_bispo[0] + 1
@@ -92,21 +99,28 @@ def pode_comer_pecas(posicao_inicial_bispo, posicao_pecas_inimigas, qnt_pecas_in
 
                 posicao_atual_bispo = posicao_inicial_bispo
 
-                inf_direita_posicao = mover_bispo__inferior_direita(posicao_atual_bispo)
-                inf_esquerda_posicao = mover_bispo__inferior_esquerda(posicao_atual_bispo)
-                sup_direita_posicao = mover_bispo__superior_direita(posicao_atual_bispo)
-                sup_esquerda_posicao = mover_bispo__superior_direita(posicao_atual_bispo)
+                #inf_direita_posicao = mover_bispo__inferior_direita(posicao_atual_bispo)
 
-                if inf_direita_posicao == posicao_pecas_inimigas[i]:
-                    pode_capturar += 1
-                elif inf_esquerda_posicao == posicao_pecas_inimigas[i]:
-                    pode_capturar += 1
-                elif sup_direita_posicao == posicao_pecas_inimigas[i]:
-                    pode_capturar +=1
-                elif sup_esquerda_posicao == posicao_pecas_inimigas[i]:
-                    pode_capturar += 1
-                else:
-                    pode_capturar = pode_capturar
+                inf_esquerda_posicoes = mover_bispo__inferior_esquerda(posicao_atual_bispo)
+
+                #sup_direita_posicao = mover_bispo__superior_direita(posicao_atual_bispo)
+                #sup_esquerda_posicao = mover_bispo__superior_direita(posicao_atual_bispo)
+
+                if inf_esquerda_posicoes[i]:
+                    if inf_esquerda_posicoes[i] in posicao_pecas_inimigas:
+                        pode_capturar += 1
+
+                
+                # if inf_direita_posicao == posicao_pecas_inimigas[i]:
+                #     pode_capturar += 1
+                # elif inf_esquerda_posicoes == posicao_pecas_inimigas[i]:
+                #     pode_capturar += 1
+                # elif sup_direita_posicao == posicao_pecas_inimigas[i]:
+                #     pode_capturar +=1
+                # elif sup_esquerda_posicao == posicao_pecas_inimigas[i]:
+                #     pode_capturar += 1
+                # else:
+                #     pode_capturar = pode_capturar
 
                 #verificacao se pode capturar
                 # if j == (posicao_pecas_inimigas[i])[0] and k == (posicao_pecas_inimigas[i])[1]:
