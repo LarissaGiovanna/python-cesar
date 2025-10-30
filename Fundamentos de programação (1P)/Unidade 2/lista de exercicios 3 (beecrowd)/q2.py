@@ -26,6 +26,6 @@ def separar_e_contar(frase):
     for k in codigo:
         print(k)
 
-    print(f"The biggest word: {maior_palavra}")
+    print(f"\nThe biggest word: {maior_palavra}")
 
 separar_e_contar(fraseDividida)
