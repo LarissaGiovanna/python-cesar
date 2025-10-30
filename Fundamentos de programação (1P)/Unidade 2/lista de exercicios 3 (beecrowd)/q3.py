@@ -1,0 +1,1 @@
+qnt_alimentos = int(input("Digite a quantidade de alimentos consumidos diariamente: "))
